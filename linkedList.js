@@ -18,8 +18,9 @@ const linkedList = () => {
   };
 
   const size = () => {
-    let counter = 0;
+    let counter = 1;
     let currentNode = head;
+    if (!currentNode) return 0;
     while (currentNode.next !== null) {
       counter += 1;
       currentNode = currentNode.next;
