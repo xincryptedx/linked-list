@@ -89,11 +89,4 @@ const linkedList = () => {
   };
 };
 
-const myLinkedList = linkedList();
-myLinkedList.prepend(420);
-myLinkedList.append(100);
-myLinkedList.append(150);
-myLinkedList.prepend(69);
-console.log(myLinkedList.tail);
-myLinkedList.pop();
-console.log(myLinkedList.tail);
+window.linkedList = linkedList();
