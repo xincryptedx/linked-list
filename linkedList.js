@@ -5,3 +5,9 @@ const node = (value = null, next = null) => {
   };
   return newNode;
 };
+
+const linkedList = () => {
+  const list = {};
+
+  return { list };
+};
