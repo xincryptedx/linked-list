@@ -43,9 +43,20 @@ const linkedList = () => {
     return counter;
   };
 
+  const tail = () => {
+    let currentNode = head;
+    while (currentNode.next !== null) {
+      currentNode = currentNode.next;
+    }
+    return currentNode;
+  };
+
   return {
     get head() {
       return head;
+    },
+    get tail() {
+      return tail();
     },
     get size() {
       return size();
@@ -63,3 +74,4 @@ myLinkedList.prepend(69);
 console.log(myLinkedList.head);
 console.log(myLinkedList.head.next);
 console.log(`Size: ${myLinkedList.size}`);
+console.log(myLinkedList.tail);
