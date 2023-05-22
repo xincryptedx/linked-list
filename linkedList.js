@@ -128,6 +128,26 @@ const linkedList = () => {
     throw new Error("Index not found. Cannot add value to list.");
   };
 
+  const removeAt = (index) => {
+    let currentIndex = 0;
+    let currentNode = head;
+    let previousNode = null;
+    while (currentNode) {
+      if (currentIndex === index && currentIndex === 0) {
+        head = currentNode.next;
+        return;
+      }
+      if (currentIndex === index && previousNode) {
+        previousNode.next = currentNode.next;
+        return;
+      }
+      previousNode = currentNode;
+      currentNode = currentNode.next;
+      currentIndex += 1;
+    }
+    throw new Error("Index not found. Cannot remove from list.");
+  };
+
   return {
     get head() {
       return head;
@@ -146,6 +166,7 @@ const linkedList = () => {
     find,
     toString,
     insertAt,
+    removeAt,
   };
 };
 
