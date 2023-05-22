@@ -14,11 +14,21 @@ const linkedList = () => {
   };
 
   const append = (value) => {
-    // Check for head
-    // Set head to the current node
-    // While current node next isn't null set current node to next node
-    // When current node next IS null, insert the new node with provided value
+    if (list.head === null) addFirst(value);
+    else {
+      let currentNode = list.head;
+      while (currentNode.next != null) {
+        currentNode = currentNode.next;
+      }
+      if (currentNode.next === null) {
+        currentNode.next = node(value);
+      }
+    }
   };
 
-  return { list };
+  return { list, append };
 };
+
+const myLinkedList = linkedList();
+myLinkedList.append(100);
+console.log(myLinkedList.head);
