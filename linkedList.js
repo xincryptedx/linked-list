@@ -93,6 +93,17 @@ const linkedList = () => {
     return null;
   };
 
+  const toString = () => {
+    let returnString = "";
+    let currentNode = head;
+    while (currentNode) {
+      returnString += `( ${currentNode.value} ) -> `;
+      currentNode = currentNode.next;
+    }
+    returnString += "null";
+    return returnString;
+  };
+
   return {
     get head() {
       return head;
@@ -109,6 +120,7 @@ const linkedList = () => {
     pop,
     contains,
     find,
+    toString,
   };
 };
 
