@@ -17,7 +17,7 @@ const linkedList = () => {
     if (head === null) addFirst(value);
     else {
       let currentNode = head;
-      while (currentNode.next != null) {
+      while (currentNode.next !== null) {
         currentNode = currentNode.next;
       }
       currentNode.next = node(value);
@@ -33,9 +33,22 @@ const linkedList = () => {
     }
   };
 
+  const size = () => {
+    let counter = 0;
+    let currentNode = head;
+    while (currentNode.next !== null) {
+      counter += 1;
+      currentNode = currentNode.next;
+    }
+    return counter;
+  };
+
   return {
     get head() {
       return head;
+    },
+    get size() {
+      return size();
     },
     append,
     prepend,
@@ -49,3 +62,4 @@ myLinkedList.append(150);
 myLinkedList.prepend(69);
 console.log(myLinkedList.head);
 console.log(myLinkedList.head.next);
+console.log(`Size: ${myLinkedList.size}`);
