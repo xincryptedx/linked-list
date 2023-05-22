@@ -11,7 +11,7 @@ const linkedList = () => {
 
   const tail = () => {
     let currentNode = head;
-    while (currentNode.next !== null) {
+    while (currentNode && currentNode.next !== null) {
       currentNode = currentNode.next;
     }
     return currentNode;
