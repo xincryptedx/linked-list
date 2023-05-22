@@ -59,6 +59,19 @@ const linkedList = () => {
     return currentNode;
   };
 
+  const pop = () => {
+    let currentNode = head;
+    let previousNode = null;
+    while (currentNode.next) {
+      previousNode = currentNode;
+      currentNode = currentNode.next;
+    }
+    if (currentNode === head) head = null;
+    else if (currentNode && previousNode) {
+      previousNode.next = null;
+    }
+  };
+
   return {
     get head() {
       return head;
@@ -72,6 +85,7 @@ const linkedList = () => {
     append,
     prepend,
     at,
+    pop,
   };
 };
 
@@ -80,4 +94,6 @@ myLinkedList.prepend(420);
 myLinkedList.append(100);
 myLinkedList.append(150);
 myLinkedList.prepend(69);
-console.log(myLinkedList.at(2));
+console.log(myLinkedList.tail);
+myLinkedList.pop();
+console.log(myLinkedList.tail);
