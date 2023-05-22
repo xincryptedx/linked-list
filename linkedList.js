@@ -9,28 +9,12 @@ const node = (value = null, next = null) => {
 const linkedList = () => {
   let head = null;
 
-  const addFirst = (value) => {
-    head = node(value);
-  };
-
-  const append = (value) => {
-    if (head === null) addFirst(value);
-    else {
-      let currentNode = head;
-      while (currentNode.next !== null) {
-        currentNode = currentNode.next;
-      }
-      currentNode.next = node(value);
+  const tail = () => {
+    let currentNode = head;
+    while (currentNode.next !== null) {
+      currentNode = currentNode.next;
     }
-  };
-
-  const prepend = (value) => {
-    if (head === null) addFirst(value);
-    else {
-      const oldHead = head;
-      head = node(value);
-      head.next = oldHead;
-    }
+    return currentNode;
   };
 
   const size = () => {
@@ -43,12 +27,24 @@ const linkedList = () => {
     return counter;
   };
 
-  const tail = () => {
-    let currentNode = head;
-    while (currentNode.next !== null) {
-      currentNode = currentNode.next;
+  const addFirst = (value) => {
+    head = node(value);
+  };
+
+  const append = (value) => {
+    if (head === null) addFirst(value);
+    else {
+      tail().next = node(value);
     }
-    return currentNode;
+  };
+
+  const prepend = (value) => {
+    if (head === null) addFirst(value);
+    else {
+      const oldHead = head;
+      head = node(value);
+      head.next = oldHead;
+    }
   };
 
   return {
