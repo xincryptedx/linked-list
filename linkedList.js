@@ -47,6 +47,18 @@ const linkedList = () => {
     }
   };
 
+  const at = (index) => {
+    if (!Number.isInteger(index) || index < 0) return undefined;
+    let currentNode = head;
+    let currentIndex = 0;
+    while (currentIndex < index) {
+      currentIndex += 1;
+      currentNode = currentNode.next;
+      if (currentNode === null) return undefined;
+    }
+    return currentNode;
+  };
+
   return {
     get head() {
       return head;
@@ -59,6 +71,7 @@ const linkedList = () => {
     },
     append,
     prepend,
+    at,
   };
 };
 
@@ -67,7 +80,4 @@ myLinkedList.prepend(420);
 myLinkedList.append(100);
 myLinkedList.append(150);
 myLinkedList.prepend(69);
-console.log(myLinkedList.head);
-console.log(myLinkedList.head.next);
-console.log(`Size: ${myLinkedList.size}`);
-console.log(myLinkedList.tail);
+console.log(myLinkedList.at(2));
