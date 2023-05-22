@@ -108,7 +108,7 @@ const linkedList = () => {
     let currentIndex = 0;
     let currentNode = head;
     let previousNode = null;
-    if (!currentNode) {
+    if (!currentNode && currentIndex === index) {
       prepend(value);
       return;
     }
