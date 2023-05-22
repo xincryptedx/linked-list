@@ -7,7 +7,11 @@ const node = (value = null, next = null) => {
 };
 
 const linkedList = () => {
-  const list = {};
+  const list = { head: null };
+
+  const addFirst = (value) => {
+    list.head = node(value);
+  };
 
   const append = (value) => {
     // Check for head
