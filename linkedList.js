@@ -24,16 +24,28 @@ const linkedList = () => {
     }
   };
 
+  const prepend = (value) => {
+    if (head === null) addFirst(value);
+    else {
+      const oldHead = head;
+      head = node(value);
+      head.next = oldHead;
+    }
+  };
+
   return {
     get head() {
       return head;
     },
     append,
+    prepend,
   };
 };
 
 const myLinkedList = linkedList();
+myLinkedList.prepend(420);
 myLinkedList.append(100);
 myLinkedList.append(150);
+myLinkedList.prepend(69);
 console.log(myLinkedList.head);
 console.log(myLinkedList.head.next);
