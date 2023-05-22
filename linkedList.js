@@ -7,28 +7,33 @@ const node = (value = null, next = null) => {
 };
 
 const linkedList = () => {
-  const list = { head: null };
+  let head = null;
 
   const addFirst = (value) => {
-    list.head = node(value);
+    head = node(value);
   };
 
   const append = (value) => {
-    if (list.head === null) addFirst(value);
+    if (head === null) addFirst(value);
     else {
-      let currentNode = list.head;
+      let currentNode = head;
       while (currentNode.next != null) {
         currentNode = currentNode.next;
       }
-      if (currentNode.next === null) {
-        currentNode.next = node(value);
-      }
+      currentNode.next = node(value);
     }
   };
 
-  return { list, append };
+  return {
+    get head() {
+      return head;
+    },
+    append,
+  };
 };
 
 const myLinkedList = linkedList();
 myLinkedList.append(100);
+myLinkedList.append(150);
 console.log(myLinkedList.head);
+console.log(myLinkedList.head.next);
