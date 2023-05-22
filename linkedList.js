@@ -63,7 +63,7 @@ const linkedList = () => {
   const pop = () => {
     let currentNode = head;
     let previousNode = null;
-    while (currentNode.next) {
+    while (currentNode && currentNode.next) {
       previousNode = currentNode;
       currentNode = currentNode.next;
     }
