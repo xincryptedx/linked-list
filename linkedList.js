@@ -104,6 +104,30 @@ const linkedList = () => {
     return returnString;
   };
 
+  const insertAt = (value, index) => {
+    let currentIndex = 0;
+    let currentNode = head;
+    let previousNode = null;
+    if (!currentNode) {
+      prepend(value);
+      return;
+    }
+    while (currentNode) {
+      if (currentIndex === index && !previousNode) {
+        prepend(value);
+        return;
+      }
+      if (currentIndex === index && previousNode) {
+        previousNode.next = node(value, currentNode);
+        return;
+      }
+      previousNode = currentNode;
+      currentNode = currentNode.next;
+      currentIndex += 1;
+    }
+    throw new Error("Index not found. Cannot add value to list.");
+  };
+
   return {
     get head() {
       return head;
@@ -121,6 +145,7 @@ const linkedList = () => {
     contains,
     find,
     toString,
+    insertAt,
   };
 };
 
